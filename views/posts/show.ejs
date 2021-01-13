@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head') %>
+    <title><%= post.title %></title>
+</head>
+
+<body>
+    <%- include('../partials/header.ejs'); %>
+   
+    <div class="container">
+        <a href="/posts/edit/<%= post.id %>">Edit Article</a>
+        <!-- Content -->
+        <section class="post-body">
+            <div class="main-content">
+                <h1><%= post.title %></h1>
+                <p><%= post.description %></p>
+                <!-- Date -->
+                <p><%= post.createdAt.getUTCDate()%>
+                    <%= post.createdAt.toLocaleString('default', { month: 'long' }) %>
+                    <%= post.createdAt.getFullYear()%>
+                </p>
+                <p><%= post.markdown %></p>
+            </div>
+        </section>
+
+    </div>
+</body>
+
+</html>

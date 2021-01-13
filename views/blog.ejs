@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Blog Page</title>
+    <%- include('./partials/head'); %>
+</head>
+
+<body>
+    <header>
+        <%- include('./partials/header'); %>
+    </header>
+
+    <!-- Banner -->
+    <section id="hero" class="green">
+        <div class="wrapper center text-wrapper">
+            <h1>Blog</h1>
+        </div>
+    </section>
+
+    <section id="projects" class="white"></section>
+    <!-- Post Section -->
+    <div class="wrapper">
+        <div class="post-grid">
+            <% posts.forEach(post => { %>
+            <article class="post-card">
+                <!-- <img class="post-image" src="<%=//posts.img%>" width="500px" alt=""> -->
+                <div class="post-content">
+                    <h2><%=post.title%></h2>
+                    <span><%=post.description%></span>
+                    <span><%=post.createdAt.toLocaleDateString() %></span>
+                    <p><%=post.content%></span>
+                </div>
+                <a href="/posts/<%= post.id %>">Read More</a>
+            </article>
+            <% }) %>
+        </div>
+    </div>
+    </section>
+
+    <footer>
+        <%- include('./partials/footer'); %>
+    </footer>
+</body>
+
+</html>
